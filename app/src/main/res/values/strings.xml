@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Waiterless</string>
+
+    <string name="mainHeader">Welcome to Waiterless</string>
+    <string name="mainLoginButton">Login</string>
+    <string name="mainRegisterButton">Register</string>
+    <string name="mainEmployeeButton">Employee Login</string>
 </resources>
