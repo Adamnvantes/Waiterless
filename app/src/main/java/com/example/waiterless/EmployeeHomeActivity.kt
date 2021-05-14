@@ -3,11 +3,9 @@ package com.example.waiterless
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class EmployeeHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        var test = "test"
-        var test1= "test"
+        setContentView(R.layout.activity_employee_home)
     }
 }
