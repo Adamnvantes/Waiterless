@@ -5,4 +5,5 @@
     <string name="mainLoginButton">Login</string>
     <string name="mainRegisterButton">Register</string>
     <string name="mainEmployeeButton">Employee Login</string>
+    <string name="mainGuestButton">Guest</string>
 </resources>
