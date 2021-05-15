@@ -1,13 +1,10 @@
 package com.example.waiterless.objects
 
-var lastID = -1
-
 abstract class Person(name : String, birthday : String, email : String, password : String) {
     private var name = name
     private var birthday = birthday
     private var email = email
     private var password = password
-    private var id = ++lastID
 
     fun getName() : String{
         return name;
@@ -25,10 +22,6 @@ abstract class Person(name : String, birthday : String, email : String, password
         return password
     }
 
-    fun getId() : Int{
-        return id
-    }
-
     fun setName(name : String){
         this.name = name
     }
@@ -44,5 +37,7 @@ abstract class Person(name : String, birthday : String, email : String, password
     fun setPassword(password: String){
         this.password = password
     }
+
+    abstract fun getID() : Int
 
 }
