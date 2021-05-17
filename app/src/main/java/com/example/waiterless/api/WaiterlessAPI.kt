@@ -8,6 +8,6 @@ interface WaiterlessAPI {
     @GET("v1/all")
     suspend fun getAllMenus() : Menus
 
-    @GET("v1/mario")
+    @GET("v1/mario/menu")
     suspend fun getMarioMenu() : RestaurantModel
 }
