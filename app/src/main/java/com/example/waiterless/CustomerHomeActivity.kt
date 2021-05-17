@@ -16,7 +16,7 @@ class CustomerHomeActivity : AppCompatActivity()
         //1. Find from a list (Papa Mario's Pizza, and other made-up restaurants)
         val restaurantListBTN = findViewById<Button>(R.id.restaurantListButton)
         restaurantListBTN.setOnClickListener {
-            val intent = Intent( this, RestaurantActivity::class.java)
+            val intent = Intent( this, RestaurantListActivity::class.java)
             startActivity(intent)
         }
 

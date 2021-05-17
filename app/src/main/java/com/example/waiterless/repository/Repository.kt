@@ -12,4 +12,8 @@ class Repository {
     suspend fun getMarioMenu() : RestaurantModel{
         return RetrofitInstance.api.getMarioMenu()
     }
+
+    //for the TBD menu
+
+
 }
