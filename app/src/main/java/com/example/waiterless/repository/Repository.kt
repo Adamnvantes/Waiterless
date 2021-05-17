@@ -5,12 +5,17 @@ import com.example.waiterless.models.Menus
 import com.example.waiterless.models.RestaurantModel
 
 class Repository {
-    suspend fun getAllMenus() : Menus{
-        return RetrofitInstance.api.getAllMenus()
+
+    suspend fun getMenu(r_id : Int) : RestaurantModel{
+        return RetrofitInstance.api.getMenu(r_id)
     }
 
-    suspend fun getMarioMenu() : RestaurantModel{
-        return RetrofitInstance.api.getMarioMenu()
+    suspend fun sendService(r_id : Int, table : Int) : String{
+        return RetrofitInstance.api.sendService(r_id, table)
+    }
+
+    suspend fun sendOrder(r_id : Int, table : Int, f_id : Int) : String{
+        return RetrofitInstance.api.sendOrder(r_id, table, f_id)
     }
 
     //for the TBD menu
