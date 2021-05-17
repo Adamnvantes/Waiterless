@@ -10,4 +10,7 @@ interface WaiterlessAPI {
 
     @GET("v1/mario")
     suspend fun getMarioMenu() : RestaurantModel
+
+    @GET("v1/buffet")
+    suspend fun getBuffetMenu() : RestaurantModel
 }
