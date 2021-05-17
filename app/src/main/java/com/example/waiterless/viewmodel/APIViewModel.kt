@@ -9,20 +9,27 @@ import com.example.waiterless.repository.Repository
 import kotlinx.coroutines.launch
 
 class APIViewModel(private val repository: Repository): ViewModel() {
-    val allResponse : MutableLiveData<Menus> = MutableLiveData()
-    val marioResponse : MutableLiveData<RestaurantModel> = MutableLiveData()
+    val restaurantModelResponse : MutableLiveData<RestaurantModel> = MutableLiveData()
+    val stringResponse : MutableLiveData<String> = MutableLiveData()
 
-    fun getMenu(){
+    fun getMenu(r_id : Int){
         viewModelScope.launch {
-            val response : Menus = repository.getAllMenus()
-            allResponse.value = response
+            val response : RestaurantModel = repository.getMenu(r_id)
+            restaurantModelResponse.value = response
         }
     }
 
-    fun getMarioMenu(){
+    fun sendService(r_id: Int, table : Int){
         viewModelScope.launch {
-            val response : RestaurantModel = repository.getMarioMenu()
-            marioResponse.value = response
+            val response : String = repository.sendService(r_id, table)
+            stringResponse.value = response
+        }
+    }
+
+    fun sendOrder(r_id : Int, table: Int, f_id : Int){
+        viewModelScope.launch {
+            val response : String = repository.sendService(r_id, table)
+            stringResponse.value = response
         }
     }
 }
