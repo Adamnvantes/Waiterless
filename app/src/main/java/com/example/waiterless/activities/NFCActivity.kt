@@ -1,8 +1,9 @@
-package com.example.waiterless
+package com.example.waiterless.activities
 
 //Justin
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.waiterless.R
 
 class NFCActivity : AppCompatActivity()
 {

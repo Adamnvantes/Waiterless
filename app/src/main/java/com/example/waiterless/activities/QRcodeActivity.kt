@@ -1,4 +1,4 @@
-package com.example.waiterless
+package com.example.waiterless.activities
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,6 +9,7 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.example.waiterless.R
 
 class QRcodeActivity : AppCompatActivity()
 {

@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Waiterless">
-        <activity android:name=".RestaurantActivity"></activity>
-        <activity android:name=".EmployeeHomeActivity" />
-        <activity android:name=".CustomerHomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.RestaurantActivity"></activity>
+        <activity android:name=".activities.EmployeeHomeActivity" />
+        <activity android:name=".activities.CustomerHomeActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
