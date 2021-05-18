@@ -17,12 +17,14 @@ class RestaurantListActivity : AppCompatActivity()
         val papaMarioPizzaBTN = findViewById<Button>(R.id.papaMarioPizzaButton)
         papaMarioPizzaBTN.setOnClickListener {
             val intent = Intent( this, RestaurantActivity::class.java)  // for now
+            intent.putExtra("id", 0)
             startActivity(intent)
         }
 
         val buffetShackBTN = findViewById<Button>(R.id.buffetShackButton)
         buffetShackBTN.setOnClickListener {
             val intent = Intent( this, RestaurantActivity::class.java)  // for now
+            intent.putExtra("id", 0)
             startActivity(intent)
         }
 
