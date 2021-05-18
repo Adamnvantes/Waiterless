@@ -30,8 +30,11 @@ interface WaiterlessAPI {
     @GET("v1/delete/{utype}/{email}")
     suspend fun deleteUser(@Path("utype") utype : String, @Path("email") email : String) : String
 
-    @GET("v1/checkpass/{utype}/{email}/{password}")
-    suspend fun checkPass(@Path("utype") utype : String, @Path("email") email : String, @Path("password") password : String) : String
+    @GET("v1/checkpass/customers/{email}/{password}")
+    suspend fun checkCustomerPass(@Path("email") email : String, @Path("password") password : String) : CustomerModel
+
+    @GET("v1/checkpass/employees/{email}/{password}")
+    suspend fun checkEmployeePass(@Path("email") email : String, @Path("password") password : String) : EmployeeModel
 
     @GET("v1/getuser/customers/{email}")
     suspend fun getCustomer(@Path("email") email : String) : CustomerModel

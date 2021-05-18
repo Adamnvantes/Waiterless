@@ -69,10 +69,17 @@ class APIViewModel(private val repository: Repository): ViewModel() {
         }
     }
 
-    fun checkPass(utype: String, email: String, password: String){
+    fun checkCustomerPass(email: String, password: String){
         viewModelScope.launch {
-            val response : String = repository.checkPass(utype, email, password)
-            stringResponse.value = response
+            val response : CustomerModel = repository.checkCustomerPass(email, password)
+            customerResponse.value = response
+        }
+    }
+
+    fun checkEmployeePass(email: String, password: String){
+        viewModelScope.launch {
+            val response : EmployeeModel = repository.checkEmployeePass(email, password)
+            employeeResponse.value = response
         }
     }
 

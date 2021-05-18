@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
 import com.example.waiterless.api.Keys
+import com.example.waiterless.objects.UserInfo
 import com.example.waiterless.repository.Repository
 import com.example.waiterless.viewmodel.APIViewModel
 import com.example.waiterless.viewmodel.APIViewModelFactory
@@ -49,7 +50,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
             }
         }, ConnectionState.ALL)
 
-        val channel = pusher.subscribe()
+        val channel = pusher.subscribe(UserInfo.employee.channel)
 
         var table1: String? = "Table 1 needs attention"
         var table2: String? = "Table 2 needs attention"
