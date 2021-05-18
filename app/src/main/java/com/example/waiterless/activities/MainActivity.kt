@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
                 } else{
                     UserInfo.employee = e
-                    val intent = Intent(this, CustomerHomeActivity::class.java)
+                    val intent = Intent(this, EmployeeHomeActivity::class.java)
                     intent.putExtra(Constants.INTENTEXTRATAG, username)
                     startActivity(intent)
                 }

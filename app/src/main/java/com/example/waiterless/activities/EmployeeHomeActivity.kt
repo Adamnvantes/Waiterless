@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
 import com.example.waiterless.api.Keys
+import com.example.waiterless.objects.Constants
 import com.example.waiterless.objects.UserInfo
 import com.example.waiterless.repository.Repository
 import com.example.waiterless.viewmodel.APIViewModel
 import com.example.waiterless.viewmodel.APIViewModelFactory
 import com.pusher.client.Pusher
 import com.pusher.client.PusherOptions
+import com.pusher.client.channel.PusherEvent
 import com.pusher.client.connection.ConnectionEventListener
 import com.pusher.client.connection.ConnectionState
 import com.pusher.client.connection.ConnectionStateChange
@@ -34,7 +36,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
         //Pusher Variables
         val options = PusherOptions()
         options.setCluster(Keys.CLUSTER)
-        val pusher = Pusher(Keys.APPID, options)
+        val pusher = Pusher(Keys.KEY, options)
 
         pusher.connect(object : ConnectionEventListener {
             override fun onConnectionStateChange(change: ConnectionStateChange) {
@@ -152,5 +154,21 @@ class EmployeeHomeActivity : AppCompatActivity() {
             }
         }
 
+        channel.bind(Constants.ORDEREVENT){ event ->
+            Log.i("Tag", event.data)
+
+
+            runOnUiThread(Runnable() {
+                fun run(x : String){
+                    val test = findViewById<TextView>(R.id.table1Text)
+                    test.text = x
+                }
+
+                run(event.data)
+            })
+
+            }
+
+        }
+
     }
-}
