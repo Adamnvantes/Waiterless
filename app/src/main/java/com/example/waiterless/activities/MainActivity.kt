@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.checkPass(Constants.EMPLOYEETAG, username, password)
             viewModel.stringResponse.observe(this, Observer { response ->
                 if(response == Constants.OKCODE){
-                    val intent = Intent(this, EmployeeHomeActivity::class.java)
+                    val intent = Intent(this, AlternateEmployeeActivity::class.java)
                     intent.putExtra(Constants.INTENTEXTRATAG, username)
                     startActivity(intent)
                 }

@@ -9,7 +9,7 @@ object Constants {
     var OKCODE = "200"
     var CONFLICTCODE = "400"
     var SERVICEEVENT = "service-event"
-    var ORDEREVENT = "order-event"
+    var ORDEREVENT = "order"
     var DEFAULTNAME = "None"
     var DEFAULTBIRTHDAY = "05-17-2021"
     var REGISTERSUCCESS = "Success! Log In"

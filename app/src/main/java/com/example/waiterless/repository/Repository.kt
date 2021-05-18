@@ -48,6 +48,14 @@ class Repository {
         return RetrofitInstance.api.getEmployee(email)
     }
 
+    suspend fun getTables(r_id : Int) : String{
+        return RetrofitInstance.api.getTables(r_id)
+    }
+
+    suspend fun getChannel(r_id : Int) : String{
+        return RetrofitInstance.api.getChannel(r_id)
+    }
+
     //for the TBD menu
 
 

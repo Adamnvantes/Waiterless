@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.waiterless">
-    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Waiterless"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.RestaurantActivity"></activity>
+        <activity android:name=".activities.AlternateEmployeeActivity"></activity>
+        <activity android:name=".activities.RestaurantActivity" />
         <activity android:name=".activities.EmployeeHomeActivity" />
         <activity android:name=".activities.CustomerHomeActivity" />
         <activity android:name=".activities.MainActivity">

@@ -7,7 +7,12 @@ import com.example.waiterless.models.CustomerModel
 import com.example.waiterless.models.EmployeeModel
 import com.example.waiterless.models.FoodModel
 import com.example.waiterless.repository.Repository
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.coroutines.suspendCoroutine
 
 class APIViewModel(private val repository: Repository): ViewModel() {
     val menuResponse : MutableLiveData<Array<FoodModel>> = MutableLiveData()
@@ -82,6 +87,21 @@ class APIViewModel(private val repository: Repository): ViewModel() {
         viewModelScope.launch {
             val response : EmployeeModel = repository.getEmployee(email)
             employeeResponse.value = response
+        }
+    }
+
+    fun getTables(r_id : Int){
+        viewModelScope.launch {
+            val response : String = repository.getTables(r_id)
+            stringResponse.value = response
+        }
+    }
+
+
+    fun getChannel(r_id : Int){
+        viewModelScope.launch {
+            val response : String = repository.getChannel(r_id)
+            stringResponse.value = response
         }
     }
 }

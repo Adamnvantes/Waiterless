@@ -38,4 +38,10 @@ interface WaiterlessAPI {
 
     @GET("v1/getuser/employees/{email}")
     suspend fun getEmployee(@Path("email") email : String) : EmployeeModel
+
+    @GET("v1/tables/{r_id}")
+    suspend fun getTables(@Path("r_id") r_id : Int) : String
+
+    @GET("v1/channel/{r_id}")
+    suspend fun getChannel(@Path("r_id") r_id: Int) : String
 }
