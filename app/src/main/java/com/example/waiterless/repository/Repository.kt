@@ -1,7 +1,6 @@
 package com.example.waiterless.repository
 
 import com.example.waiterless.api.RetrofitInstance
-import com.example.waiterless.models.Menus
 import com.example.waiterless.models.RestaurantModel
 
 class Repository {

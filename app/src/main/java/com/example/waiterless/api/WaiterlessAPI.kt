@@ -1,6 +1,5 @@
 package com.example.waiterless.api
 
-import com.example.waiterless.models.Menus
 import com.example.waiterless.models.RestaurantModel
 import retrofit2.http.GET
 import retrofit2.http.Path
