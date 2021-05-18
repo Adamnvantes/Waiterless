@@ -65,4 +65,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerHomeTitle" />
 
+    <TextView
+        android:id="@+id/customerChangeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Change Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
+
+    <Spinner
+        android:id="@+id/customerSpinner"
+        android:layout_width="128dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
+
+    <EditText
+        android:id="@+id/customerChangeValue"
+        android:layout_width="241dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/customerSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
