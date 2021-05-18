@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.EmployeeHomeActivity">
+    tools:context=".EmployeeHomeActivity">
 
     <TextView
         android:id="@+id/headerText"
@@ -53,7 +53,7 @@
         android:layout_below="@id/tableText"
         android:layout_marginBottom="6dp"
         android:text="Table 1: No attention needed"
-        android:textSize="19dp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
     <TextView
         android:id="@+id/table2Text"
         android:layout_below="@id/table1Text"
-        android:textSize="19dp"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -149,7 +149,7 @@
         android:id="@+id/table3Text"
         android:layout_marginBottom="10dp"
         android:layout_below="@id/table2Text"
-        android:textSize="19dp"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Table 3: No attention needed"
@@ -162,7 +162,7 @@
         android:id="@+id/table4Text"
         android:layout_marginBottom="6dp"
         android:layout_below="@id/table3Text"
-        android:textSize="19dp"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Table 4: No attention needed"
@@ -174,7 +174,7 @@
     <TextView
         android:id="@+id/table5Text"
         android:layout_below="@id/table4Text"
-        android:textSize="19dp"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Table 5: No attention needed"
@@ -201,21 +201,21 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="-49dp"
         android:layout_marginRight="7dp"
-        android:text="Clear Next"
+        android:text="Next Order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toEndOf="@+id/kitchenText"
         app:layout_constraintTop_toBottomOf="@+id/table5Button" />
+
     <TextView
         android:id="@+id/orderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/kitchenText"
-        android:layout_marginTop="50dp"
-        android:text="No Orders Pending"
-        android:textSize="21dp"
+        android:layout_marginTop="21dp"
+        android:text="No current orders"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="154dp" />
-
 
 </RelativeLayout>
