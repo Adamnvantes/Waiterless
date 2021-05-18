@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             val password = userInputPassword.text.toString()
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.checkUser(username, password)
+            viewModel.checkPass("customers",username, password)
             viewModel.stringResponse.observe(this, Observer { response ->
                 if(response == "200"){
                     var intent = Intent(this, CustomerHomeActivity::class.java)
@@ -56,15 +56,32 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnRegister.setOnClickListener{
-            val username = userInputEmail.text
-            val password = userInputPassword.text
-            //TODO: Check for conflicting usernames
+            val username = userInputEmail.text.toString()
+            val password = userInputPassword.text.toString()
+            var makeaccount = false
 
-            if(true){
-                //TODO: Add username / password to database
-                val intent = Intent(this, CustomerHomeActivity::class.java)
-                intent.putExtra("email", username).putExtra("password", password)
-                startActivity(intent)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+            viewModel.checkUser(username, password)
+            viewModel.stringResponse.observe(this, Observer { response ->
+                if(response == "200"){
+                    Toast.makeText(this, "Username already used", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    makeaccount = true
+                }
+            })
+
+            if(makeaccount){
+                viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+                viewModel.addUser("customers", "", "", username, password)
+                viewModel.stringResponse.observe(this, Observer { response ->
+                    if(response == "200"){
+                        Toast.makeText(this, "Success! Log in", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                    }
+                })
             }
         }
 
