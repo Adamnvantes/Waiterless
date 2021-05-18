@@ -2,18 +2,25 @@ package com.example.waiterless.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
+import com.example.waiterless.api.Keys
 import com.example.waiterless.repository.Repository
 import com.example.waiterless.viewmodel.APIViewModel
 import com.example.waiterless.viewmodel.APIViewModelFactory
+import com.pusher.client.Pusher
+import com.pusher.client.PusherOptions
+import com.pusher.client.connection.ConnectionEventListener
+import com.pusher.client.connection.ConnectionState
+import com.pusher.client.connection.ConnectionStateChange
 import java.util.*
 
 class EmployeeHomeActivity : AppCompatActivity() {
-    private lateinit var viewModel : APIViewModel
+    //private lateinit var viewModel : APIViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_home)
@@ -21,8 +28,28 @@ class EmployeeHomeActivity : AppCompatActivity() {
         val repository=Repository()
         val viewModelFactory=APIViewModelFactory(repository)
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+        //viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
 
+        //Pusher Variables
+        val options = PusherOptions()
+        options.setCluster(Keys.CLUSTER)
+        val pusher = Pusher(Keys.APPID, options)
+
+        pusher.connect(object : ConnectionEventListener {
+            override fun onConnectionStateChange(change: ConnectionStateChange) {
+                Log.i("Pusher", "State changed from ${change.previousState} to ${change.currentState}")
+            }
+
+            override fun onError(
+                message: String,
+                code: String,
+                e: Exception
+            ) {
+                Log.i("Pusher", "There was a problem connecting! code ($code), message ($message), exception($e)")
+            }
+        }, ConnectionState.ALL)
+
+        val channel = pusher.subscribe()
 
         var table1: String? = "Table 1 needs attention"
         var table2: String? = "Table 2 needs attention"
