@@ -1,6 +1,8 @@
 package com.example.waiterless.repository
 
 import com.example.waiterless.api.RetrofitInstance
+import com.example.waiterless.models.CustomerModel
+import com.example.waiterless.models.EmployeeModel
 import com.example.waiterless.models.FoodModel
 import com.example.waiterless.models.RestaurantModel
 
@@ -36,6 +38,14 @@ class Repository {
 
     suspend fun checkPass(utype: String, email: String, password: String) : String{
         return RetrofitInstance.api.checkPass(utype, email, password)
+    }
+
+    suspend fun getCustomer(email: String) : CustomerModel{
+        return RetrofitInstance.api.getCustomer(email)
+    }
+
+    suspend fun getEmployee(email: String) : EmployeeModel{
+        return RetrofitInstance.api.getEmployee(email)
     }
 
     //for the TBD menu

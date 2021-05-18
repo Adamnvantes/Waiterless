@@ -1,5 +1,7 @@
 package com.example.waiterless.api
 
+import com.example.waiterless.models.CustomerModel
+import com.example.waiterless.models.EmployeeModel
 import com.example.waiterless.models.FoodModel
 import com.example.waiterless.models.RestaurantModel
 import retrofit2.http.GET
@@ -30,4 +32,10 @@ interface WaiterlessAPI {
 
     @GET("v1/checkpass/{utype}/{email}/{password}")
     suspend fun checkPass(@Path("utype") utype : String, @Path("email") email : String, @Path("password") password : String) : String
+
+    @GET("v1/getuser/customers/{email}")
+    suspend fun getCustomer(@Path("email") email : String) : CustomerModel
+
+    @GET("v1/getuser/employees/{email}")
+    suspend fun getEmployee(@Path("email") email : String) : EmployeeModel
 }

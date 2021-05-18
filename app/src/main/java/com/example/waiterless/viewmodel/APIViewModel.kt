@@ -3,6 +3,8 @@ package com.example.waiterless.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.waiterless.models.CustomerModel
+import com.example.waiterless.models.EmployeeModel
 import com.example.waiterless.models.FoodModel
 import com.example.waiterless.repository.Repository
 import kotlinx.coroutines.launch
@@ -10,6 +12,8 @@ import kotlinx.coroutines.launch
 class APIViewModel(private val repository: Repository): ViewModel() {
     val menuResponse : MutableLiveData<Array<FoodModel>> = MutableLiveData()
     val stringResponse : MutableLiveData<String> = MutableLiveData()
+    val customerResponse : MutableLiveData<CustomerModel> = MutableLiveData()
+    val employeeResponse : MutableLiveData<EmployeeModel> = MutableLiveData()
 
     fun getMenu(r_id : Int){
         viewModelScope.launch {
@@ -64,6 +68,20 @@ class APIViewModel(private val repository: Repository): ViewModel() {
         viewModelScope.launch {
             val response : String = repository.checkPass(utype, email, password)
             stringResponse.value = response
+        }
+    }
+
+    fun getCustomer(email : String){
+        viewModelScope.launch {
+            val response : CustomerModel = repository.getCustomer(email)
+            customerResponse.value = response
+        }
+    }
+
+    fun getEmployee(email : String){
+        viewModelScope.launch {
+            val response : EmployeeModel = repository.getEmployee(email)
+            employeeResponse.value = response
         }
     }
 }
