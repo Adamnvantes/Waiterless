@@ -4,20 +4,32 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
-import java.util.Queue
-import java.util.LinkedList
+import com.example.waiterless.repository.Repository
+import com.example.waiterless.viewmodel.APIViewModel
+import com.example.waiterless.viewmodel.APIViewModelFactory
+import java.util.*
 
 class EmployeeHomeActivity : AppCompatActivity() {
+    private lateinit var viewModel : APIViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_home)
+
+        val repository=Repository()
+        val viewModelFactory=APIViewModelFactory(repository)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+
+
         var table1: String? = "Table 1 needs attention"
         var table2: String? = "Table 2 needs attention"
         var table3: String? = "Table 3 needs attention"
         var table4: String? = "Table 4 needs attention"
         var table5: String? = "Table 5 needs attention"
-        /*
+
         // clears all table requests
         val buttonClearTableRequests=findViewById<Button>(R.id.tableButton)
         buttonClearTableRequests.setOnClickListener{
@@ -99,7 +111,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
             }
             else
             {
-               orders.remove()
+                orders.remove()
                 if (orders.size==0)
                 {
                     var orderMsg: TextView = findViewById(R.id.orderText)
@@ -110,7 +122,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
                     orderMsg.setText(orders.peek())
                 }
             }
-        }*/
+        }
 
     }
 }
