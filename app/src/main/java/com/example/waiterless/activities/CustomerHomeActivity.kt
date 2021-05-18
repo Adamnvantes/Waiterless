@@ -3,7 +3,9 @@ package com.example.waiterless.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import com.example.waiterless.R
 import com.example.waiterless.objects.UserInfo
@@ -19,6 +21,14 @@ class CustomerHomeActivity : AppCompatActivity()
         //Welcome header
         val welcomeBar = findViewById<TextView>(R.id.customerHomeWelcome)
         welcomeBar.text = "Welcome ${UserInfo.customer.name}!"
+
+        //Populating edit value options
+        val spinner = findViewById<Spinner>(R.id.customerSpinner)
+        ArrayAdapter.createFromResource(this, R.array.Profile_changes, R.layout.support_simple_spinner_dropdown_item).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
+
 
         //Variable holding restaurant ID
         var rID = 0

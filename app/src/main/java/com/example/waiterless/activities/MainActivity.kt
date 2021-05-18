@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
         btnGuest.setOnClickListener {
             val intent = Intent(this, CustomerHomeActivity::class.java)
-            intent.putExtra(Constants.INTENTEXTRATAG, Constants.GUEST)
+            UserInfo.customer = Constants.DEFAULTCUSTOMER
             startActivity(intent)
         }
 
