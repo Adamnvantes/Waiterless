@@ -9,7 +9,10 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
+import com.example.waiterless.models.CustomerModel
+import com.example.waiterless.models.EmployeeModel
 import com.example.waiterless.objects.Constants
+import com.example.waiterless.objects.UserInfo
 import com.example.waiterless.repository.Repository
 import com.example.waiterless.viewmodel.APIViewModel
 import com.example.waiterless.viewmodel.APIViewModelFactory
@@ -43,14 +46,18 @@ class MainActivity : AppCompatActivity() {
             val password = userInputPassword.text.toString()
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.checkPass(Constants.CUSTOMERTAG, username, password)
-            viewModel.stringResponse.observe(this, Observer { response ->
-                if (response == Constants.OKCODE) {
-                    var intent = Intent(this, CustomerHomeActivity::class.java)
+            viewModel.checkCustomerPass(username, password)
+            viewModel.customerResponse.observe(this, Observer { response ->
+                var c : CustomerModel = response
+
+                if(c.customerID == -1){
+                    //Default customer. Customer does not exist
+                    Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
+                }else{
+                    UserInfo.customer = c
+                    val intent = Intent(this, CustomerHomeActivity::class.java)
                     intent.putExtra(Constants.INTENTEXTRATAG, username)
                     startActivity(intent)
-                } else {
-                    Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
                 }
             })
         }
@@ -87,15 +94,18 @@ class MainActivity : AppCompatActivity() {
             val password = userInputPassword.text.toString()
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.checkPass(Constants.EMPLOYEETAG, username, password)
-            viewModel.stringResponse.observe(this, Observer { response ->
-                if(response == Constants.OKCODE){
-                    val intent = Intent(this, AlternateEmployeeActivity::class.java)
+            viewModel.checkEmployeePass(username, password)
+            viewModel.employeeResponse.observe(this, Observer { response ->
+                var e : EmployeeModel = response
+
+                if(e.employeeID == -1){
+                    //Default employee. Employee does not exist
+                    Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
+                } else{
+                    UserInfo.employee = e
+                    val intent = Intent(this, EmployeeHomeActivity::class.java)
                     intent.putExtra(Constants.INTENTEXTRATAG, username)
                     startActivity(intent)
-                }
-                else{
-                    Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
                 }
             })
 

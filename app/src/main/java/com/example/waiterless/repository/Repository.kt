@@ -36,8 +36,12 @@ class Repository {
         return RetrofitInstance.api.deleteUser(utype, email)
     }
 
-    suspend fun checkPass(utype: String, email: String, password: String) : String{
-        return RetrofitInstance.api.checkPass(utype, email, password)
+    suspend fun checkCustomerPass(email: String, password: String) : CustomerModel{
+        return RetrofitInstance.api.checkCustomerPass(email, password)
+    }
+
+    suspend fun checkEmployeePass(email: String, password: String) : EmployeeModel{
+        return RetrofitInstance.api.checkEmployeePass(email, password)
     }
 
     suspend fun getCustomer(email: String) : CustomerModel{
