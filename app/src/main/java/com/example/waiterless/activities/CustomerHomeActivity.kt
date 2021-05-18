@@ -28,14 +28,7 @@ class CustomerHomeActivity : AppCompatActivity()
             startActivity(intent)
         }
 
-        //3. Scan NFC
-        val nfcBTN = findViewById<Button>(R.id.nfcButton)
-        nfcBTN.setOnClickListener {
-            val intent = Intent( this, NFCActivity::class.java)
-            startActivity(intent)
-        }
-
-        //4. Select a previously selected restaurant (from recent history)
+        //3. Select a previously selected restaurant (from recent history)
         val recentHistoryBTN = findViewById<Button>(R.id.recentHistoryButton)
         recentHistoryBTN.setOnClickListener {
             val intent = Intent( this, RestaurantActivity::class.java)  // for now
