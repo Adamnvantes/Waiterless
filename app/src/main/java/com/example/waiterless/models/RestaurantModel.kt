@@ -4,5 +4,5 @@ data class RestaurantModel(
     val r_id : Int,
     val name : String,
     val channel : String,
-    val categories : Category
+    val menu : Array<FoodModel>
 )
