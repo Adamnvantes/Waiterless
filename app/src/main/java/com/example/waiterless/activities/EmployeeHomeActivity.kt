@@ -1,9 +1,10 @@
-package com.example.waiterless
+package com.example.waiterless.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.waiterless.R
 import java.util.Queue
 import java.util.LinkedList
 

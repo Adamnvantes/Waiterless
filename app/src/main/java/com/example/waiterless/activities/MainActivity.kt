@@ -81,5 +81,24 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(Constants.INTENTEXTRATAG, Constants.GUEST)
             startActivity(intent)
         }
+
+        btnEmployee.setOnClickListener {
+            val username = userInputEmail.text.toString()
+            val password = userInputPassword.text.toString()
+
+            viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+            viewModel.checkPass(Constants.EMPLOYEETAG, username, password)
+            viewModel.stringResponse.observe(this, Observer { response ->
+                if(response == Constants.OKCODE){
+                    val intent = Intent(this, EmployeeHomeActivity::class.java)
+                    intent.putExtra(Constants.INTENTEXTRATAG, username)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        }
     }
 }
