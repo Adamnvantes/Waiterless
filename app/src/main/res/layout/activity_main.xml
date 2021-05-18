@@ -31,13 +31,13 @@
         app:layout_constraintTop_toBottomOf="@+id/mainTxtHeader" />
 
     <Button
-        android:id="@+id/mainBtnRegister"
+        android:id="@+id/mainBtnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="48dp"
         android:text="@string/mainLoginButton"
-        app:layout_constraintEnd_toStartOf="@+id/mainBtnLogin"
+        app:layout_constraintEnd_toStartOf="@+id/mainBtnRegister"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toEndOf="@+id/mainBtnGuest"
         app:layout_constraintTop_toBottomOf="@+id/mainInputPassword" />
@@ -53,7 +53,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/mainBtnLogin"
+        android:id="@+id/mainBtnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"

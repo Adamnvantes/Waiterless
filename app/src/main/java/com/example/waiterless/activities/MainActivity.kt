@@ -3,6 +3,7 @@ package com.example.waiterless.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //Grabbing information
         btnLogin.setOnClickListener{
+            Log.d("TAG", "Hi")
             val username = userInputEmail.text.toString()
             val password = userInputPassword.text.toString()
 
