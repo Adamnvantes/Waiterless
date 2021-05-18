@@ -15,7 +15,7 @@ import com.example.waiterless.viewmodel.APIViewModel
 import com.example.waiterless.viewmodel.APIViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel : APIViewModel
+    private lateinit var viewModel: APIViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.mainBtnRegister)
         val btnGuest = findViewById<Button>(R.id.mainBtnGuest)
         val btnEmployee = findViewById<Button>(R.id.mainBtnEmployee)
+        var makeaccount = false
 
         //API variables
         val repository = Repository()
@@ -38,58 +39,49 @@ class MainActivity : AppCompatActivity() {
         userInputPassword.hint = "Please enter your password"
 
         //Grabbing information
-        btnLogin.setOnClickListener{
-            Log.d("TAG", "Hi")
+        btnLogin.setOnClickListener {
             val username = userInputEmail.text.toString()
             val password = userInputPassword.text.toString()
+            makeaccount = false
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.checkPass("customers",username, password)
+            viewModel.checkPass("customers", username, password)
             viewModel.stringResponse.observe(this, Observer { response ->
-                if(response == "200"){
+                if (response == "200") {
                     var intent = Intent(this, CustomerHomeActivity::class.java)
                     intent.putExtra("email", username)
                     startActivity(intent)
-                }
-                else{
+                } else {
                     Toast.makeText(this, "Please Try Again!", Toast.LENGTH_SHORT).show()
                 }
             })
         }
 
-        btnRegister.setOnClickListener{
+        btnRegister.setOnClickListener {
             val username = userInputEmail.text.toString()
             val password = userInputPassword.text.toString()
-            var makeaccount = false
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.checkUser(username, password)
+            viewModel.addUser("customers", "-1", "-1", username, password)
             viewModel.stringResponse.observe(this, Observer { response ->
-                if(response == "200"){
-                    Toast.makeText(this, "Username already used", Toast.LENGTH_SHORT).show()
-                }
-                else{
-                    makeaccount = true
+                when (response) {
+                    "200" -> {
+                        Toast.makeText(this, "Success! Log in", Toast.LENGTH_SHORT).show()
+                    }
+                    "400" -> {
+                        Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                    }
                 }
             })
 
-            if(makeaccount){
-                viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-                viewModel.addUser("customers", "", "", username, password)
-                viewModel.stringResponse.observe(this, Observer { response ->
-                    if(response == "200"){
-                        Toast.makeText(this, "Success! Log in", Toast.LENGTH_SHORT).show()
-                    }
-                    else{
-                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-                    }
-                })
+
+            btnGuest.setOnClickListener {
+                //val intent = Intent
             }
-        }
 
-        btnGuest.setOnClickListener {
-            //val intent = Intent
         }
-
     }
 }
