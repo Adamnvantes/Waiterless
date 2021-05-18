@@ -167,8 +167,8 @@ class EmployeeHomeActivity : AppCompatActivity() {
                 run(event.data)
             })
 
-            }
-
         }
 
     }
+
+}
