@@ -16,7 +16,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
         var table3: String? = "Table 3 needs attention"
         var table4: String? = "Table 4 needs attention"
         var table5: String? = "Table 5 needs attention"
-
+        /*
         // clears all table requests
         val buttonClearTableRequests=findViewById<Button>(R.id.tableButton)
         buttonClearTableRequests.setOnClickListener{
@@ -109,7 +109,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
                     orderMsg.setText(orders.peek())
                 }
             }
-        }
+        }*/
 
     }
 }
