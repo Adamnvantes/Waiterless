@@ -37,7 +37,7 @@ class APIViewModel(private val repository: Repository): ViewModel() {
 
     fun sendOrder(r_id : Int, table: Int, f_id : Int){
         viewModelScope.launch {
-            val response : String = repository.sendService(r_id, table)
+            val response : String = repository.sendOrder(r_id, table, f_id)
             stringResponse.value = response
         }
     }
