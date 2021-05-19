@@ -70,11 +70,14 @@ class CustomerHomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
             spinnerRestaurantAll.adapter = aa
         }
 
+        val editNumber = findViewById<EditText>(R.id.editTableNumber)
+
         //Button for all restaurants choice
         val btnAll = findViewById<Button>(R.id.btnRestaurantAll)
         btnAll.setOnClickListener {
             val intent = Intent(this, RestaurantActivity::class.java)
             intent.putExtra("rID",spinnerPos)
+            intent.putExtra("table", Integer.parseInt(editNumber.text.toString()))
             startActivity(intent)
         }
 
@@ -83,6 +86,7 @@ class CustomerHomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         btnAll.setOnClickListener {
             val intent = Intent(this, RestaurantActivity::class.java)
             intent.putExtra("rID",spinnerPos)
+            intent.putExtra("table", Integer.parseInt(editNumber.text.toString()))
             startActivity(intent)
         }
 
