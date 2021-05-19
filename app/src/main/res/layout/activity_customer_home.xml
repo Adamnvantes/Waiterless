@@ -20,16 +20,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/restaurantListButton"
+        android:id="@+id/btnRestaurantAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recent Restaurants"
+        android:text="Select From All Restaurants"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/recentHistoryButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnRestaurantRecent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerHomeTitle"
-        app:layout_constraintVertical_bias="0.593" />
+        app:layout_constraintVertical_bias="0.654" />
 
     <Button
         android:id="@+id/qrCodeButton"
@@ -44,11 +45,11 @@
 
     <Button
 
-        android:id="@+id/recentHistoryButton"
+        android:id="@+id/btnRestaurantRecent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="116dp"
-        android:text="Recent History"
+        android:text="Select From Recents"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/qrCodeButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +120,7 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/recentHistoryButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnRestaurantRecent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
