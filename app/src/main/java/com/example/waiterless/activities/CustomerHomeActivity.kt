@@ -76,22 +76,40 @@ class CustomerHomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         val btnAll = findViewById<Button>(R.id.btnRestaurantAll)
         btnAll.setOnClickListener {
             val intent = Intent(this, RestaurantActivity::class.java)
-            val table : Int
             if(editNumber.text.isEmpty()){
+                Toast.makeText(this, "Please select a table", Toast.LENGTH_SHORT).show()
+            } else {
+                val table = Integer.parseInt(editNumber.text.toString())
 
+                if(table < 1 || table > 5){
+                    Toast.makeText(this, "Please select a valid table", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    intent.putExtra("rID", spinnerPos)
+                    intent.putExtra("table", table)
+                    startActivity(intent)
+                }
             }
-            intent.putExtra("rID",spinnerPos)
-            intent.putExtra("table", Integer.parseInt(editNumber.text.toString()))
-            startActivity(intent)
         }
 
         //Button for all restaurants choice
         val btnRecent = findViewById<Button>(R.id.btnRestaurantRecent)
         btnAll.setOnClickListener {
             val intent = Intent(this, RestaurantActivity::class.java)
-            intent.putExtra("rID",spinnerPos)
-            intent.putExtra("table", Integer.parseInt(editNumber.text.toString()))
-            startActivity(intent)
+            if(editNumber.text.isEmpty()){
+                Toast.makeText(this, "Please select a table", Toast.LENGTH_SHORT).show()
+            } else {
+                val table = Integer.parseInt(editNumber.text.toString())
+
+                if(table < 1 || table > 5){
+                    Toast.makeText(this, "Please select a valid table", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    intent.putExtra("rID", spinnerPos)
+                    intent.putExtra("table", table)
+                    startActivity(intent)
+                }
+            }
         }
 
         spinnerEdit.prompt = "Value"
