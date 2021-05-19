@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/foodText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="69dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="92dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/menuItem6Pic"
@@ -18,18 +18,18 @@
 
     <TextView
         android:id="@+id/priceText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="63dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodText6" />
 
     <TextView
         android:id="@+id/foodText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="23dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="96dp"
         android:text="TextView"
@@ -40,9 +40,9 @@
 
     <TextView
         android:id="@+id/priceText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="71dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,19 +50,19 @@
 
     <TextView
         android:id="@+id/foodText7"
-        android:layout_width="67dp"
-        android:layout_height="24dp"
+        android:layout_width="80dp"
+        android:layout_height="29dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="88dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/menuItem7Pic"
         app:layout_constraintTop_toBottomOf="@+id/priceText5" />
 
     <TextView
         android:id="@+id/priceText7"
-        android:layout_width="67dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="76dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="33dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,8 +72,8 @@
 
     <TextView
         android:id="@+id/foodText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="71dp"
+        android:layout_height="22dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="28dp"
         android:text="TextView"
@@ -82,8 +82,8 @@
 
     <TextView
         android:id="@+id/priceText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="68dp"
+        android:layout_height="23dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="28dp"
         android:text="TextView"
@@ -92,8 +92,8 @@
 
     <TextView
         android:id="@+id/foodText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="26dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="92dp"
         android:text="TextView"
@@ -102,18 +102,18 @@
 
     <TextView
         android:id="@+id/priceText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="56dp"
+        android:layout_width="75dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/menuItem6Pic"
         app:layout_constraintTop_toBottomOf="@+id/foodText5" />
 
     <TextView
         android:id="@+id/foodText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="92dp"
         android:text="TextView"
@@ -122,10 +122,10 @@
 
     <TextView
         android:id="@+id/priceText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="64dp"
+        android:layout_width="76dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="36dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/menuItem4Pic"
         app:layout_constraintTop_toBottomOf="@+id/foodText3" />
@@ -197,20 +197,20 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:onClick="scrollToTop"
         android:id="@+id/menuItem7Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="100dp"
+        android:onClick="scrollToTop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/foodText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="82dp"
+        android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:text="TextView"
@@ -219,10 +219,10 @@
 
     <TextView
         android:id="@+id/priceText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="56dp"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/menuItem2Pic"
         app:layout_constraintTop_toBottomOf="@+id/foodText1" />
