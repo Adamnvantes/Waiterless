@@ -1,6 +1,7 @@
 package com.example.waiterless.objects
 
 import com.example.waiterless.models.CustomerModel
+import com.example.waiterless.models.RestaurantModel
 
 object Constants {
     var APIIP = "http://10.0.2.2:5000/api/"
@@ -20,5 +21,5 @@ object Constants {
     var TRYAGAIN = "Please Try Again"
     var ENTEREMAIL = "Please enter your email"
     var ENTERPASS = "Please enter your password"
-    var DEFAULTCUSTOMER = CustomerModel(-10, "Guest", "03-03-1762", "guest@example.com", "password", emptyArray())
+    var DEFAULTCUSTOMER = CustomerModel(-10, "Guest", "03-03-1762", "guest@example.com", "password", arrayOf("Papa Mario's Pizza"))
 }

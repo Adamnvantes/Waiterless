@@ -19,6 +19,7 @@ class APIViewModel(private val repository: Repository): ViewModel() {
     val stringResponse : MutableLiveData<String> = MutableLiveData()
     val customerResponse : MutableLiveData<CustomerModel> = MutableLiveData()
     val employeeResponse : MutableLiveData<EmployeeModel> = MutableLiveData()
+    val stringArrayResponse : MutableLiveData<Array<String>> = MutableLiveData()
 
     fun getMenu(r_id : Int){
         viewModelScope.launch {
@@ -109,6 +110,13 @@ class APIViewModel(private val repository: Repository): ViewModel() {
         viewModelScope.launch {
             val response : String = repository.getChannel(r_id)
             stringResponse.value = response
+        }
+    }
+
+    fun getRestaurants(){
+        viewModelScope.launch {
+            val response : Array<String> = repository.getRestaurants()
+            stringArrayResponse.value = response
         }
     }
 }

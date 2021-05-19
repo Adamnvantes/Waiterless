@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
 import com.example.waiterless.models.CustomerModel
 import com.example.waiterless.models.EmployeeModel
+import com.example.waiterless.objects.APPInfo
 import com.example.waiterless.objects.Constants
 import com.example.waiterless.objects.UserInfo
 import com.example.waiterless.repository.Repository
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Grabbing info from App
+        getAPIInfo()
 
         //Variable declarations
         val userInputEmail = findViewById<EditText>(R.id.mainInputEmail)
@@ -110,5 +114,16 @@ class MainActivity : AppCompatActivity() {
             })
 
         }
+    }
+
+    fun getAPIInfo(){
+        var repository = Repository()
+        var viewModelFactory = APIViewModelFactory(repository)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+        viewModel.getRestaurants()
+        viewModel.stringArrayResponse.observe(this, Observer { response ->
+            APPInfo.restaurants = response
+        })
     }
 }

@@ -6,5 +6,5 @@ data class CustomerModel(
     val birthday : String,
     val email : String,
     val password : String,
-    val visited : Array<RestaurantModel>
+    val visited : Array<String>
 )

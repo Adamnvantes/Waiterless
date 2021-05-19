@@ -47,4 +47,7 @@ interface WaiterlessAPI {
 
     @GET("v1/channel/{r_id}")
     suspend fun getChannel(@Path("r_id") r_id: Int) : String
+
+    @GET("v1/restaurants")
+    suspend fun getRestaurants() : Array<String>
 }

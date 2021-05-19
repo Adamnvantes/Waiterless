@@ -60,6 +60,10 @@ class Repository {
         return RetrofitInstance.api.getChannel(r_id)
     }
 
+    suspend fun getRestaurants() : Array<String>{
+        return RetrofitInstance.api.getRestaurants()
+    }
+
     //for the TBD menu
 
 
