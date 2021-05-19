@@ -55,13 +55,8 @@ class EmployeeHomeActivity : AppCompatActivity() {
 
         val channel = pusher.subscribe(UserInfo.employee.channel)
 
-        var table1: String? = "Table 1 needs attention"
-        var table2: String? = "Table 2 needs attention"
-        var table3: String? = "Table 3 needs attention"
-        var table4: String? = "Table 4 needs attention"
-        var table5: String? = "Table 5 needs attention"
 
-        // clears all table requests
+        // This is the function for the button that clears all table requests
         val buttonClearTableRequests=findViewById<Button>(R.id.tableButton)
         buttonClearTableRequests.setOnClickListener{
             var table1Msg: TextView =findViewById(R.id.table1Text)
@@ -118,9 +113,11 @@ class EmployeeHomeActivity : AppCompatActivity() {
             table1Msg.setText("Table 5: No attention needed")
 
         }
+
+        //Queue is initialized
         val orders: Queue<String> = LinkedList<String>()
 
-        //show order in queue if any
+        //show order in queue if any, otherwise let the user know there's no orders pending
         if (orders.size==0)
         {
             var orderMsg: TextView = findViewById(R.id.orderText)
@@ -131,6 +128,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
             var orderMsg: TextView = findViewById(R.id.orderText)
             orderMsg.setText(orders.peek())
         }
+        //show order in queue if any, otherwise let the user know there's no orders pending when button is pressed
         val buttonClearOrder=findViewById<Button>(R.id.kitchenButton)
         buttonClearOrder.setOnClickListener{
             if (orders.size==0)
@@ -157,7 +155,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
             Log.i("Tag", event.data)
 
 
-
+            //this thread calls the api and obtains the data required to put the orders on the queue
             runOnUiThread(Runnable() {
                 fun run(x : String){
                     //val test = findViewById<TextView>(R.id.table1Text)

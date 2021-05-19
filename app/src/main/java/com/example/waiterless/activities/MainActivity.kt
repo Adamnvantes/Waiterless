@@ -46,45 +46,65 @@ class MainActivity : AppCompatActivity() {
 
         //Grabbing information
         btnLogin.setOnClickListener {
-            val username = userInputEmail.text.toString()
-            val password = userInputPassword.text.toString()
 
-            viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.checkCustomerPass(username, password)
-            viewModel.customerResponse.observe(this, Observer { response ->
-                var c : CustomerModel = response
+            if(userInputEmail.text.isEmpty() || userInputPassword.text.isEmpty()){
+                Toast.makeText(this, "Please don't leave anything blank", Toast.LENGTH_SHORT).show()
+            }
+            else {
 
-                if(c.customerID == -1){
-                    //Default customer. Customer does not exist
-                    Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
-                }else{
-                    UserInfo.customer = c
-                    val intent = Intent(this, CustomerHomeActivity::class.java)
-                    intent.putExtra(Constants.INTENTEXTRATAG, username)
-                    startActivity(intent)
-                }
-            })
+                val username = userInputEmail.text.toString()
+                val password = userInputPassword.text.toString()
+
+                viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+                viewModel.checkCustomerPass(username, password)
+                viewModel.customerResponse.observe(this, Observer { response ->
+                    var c: CustomerModel = response
+
+                    if (c.customerID == -1) {
+                        //Default customer. Customer does not exist
+                        Toast.makeText(this, Constants.TRYAGAIN, Toast.LENGTH_SHORT).show()
+                    } else {
+                        UserInfo.customer = c
+                        val intent = Intent(this, CustomerHomeActivity::class.java)
+                        intent.putExtra(Constants.INTENTEXTRATAG, username)
+                        startActivity(intent)
+                    }
+                })
+            }
         }
 
         btnRegister.setOnClickListener {
-            val username = userInputEmail.text.toString()
-            val password = userInputPassword.text.toString()
+            if(userInputEmail.text.isEmpty() || userInputPassword.text.isEmpty()){
+                Toast.makeText(this, "Please don't leave anything blank", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val username = userInputEmail.text.toString()
+                val password = userInputPassword.text.toString()
 
-            viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-            viewModel.addUser(Constants.CUSTOMERTAG, Constants.DEFAULTNAME, Constants.DEFAULTBIRTHDAY, username, password)
-            viewModel.stringResponse.observe(this, Observer { response ->
-                when (response) {
-                    Constants.OKCODE -> {
-                        Toast.makeText(this, Constants.REGISTERSUCCESS, Toast.LENGTH_SHORT).show()
+                viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+                viewModel.addUser(
+                    Constants.CUSTOMERTAG,
+                    Constants.DEFAULTNAME,
+                    Constants.DEFAULTBIRTHDAY,
+                    username,
+                    password
+                )
+                viewModel.stringResponse.observe(this, Observer { response ->
+                    when (response) {
+                        Constants.OKCODE -> {
+                            Toast.makeText(this, Constants.REGISTERSUCCESS, Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                        Constants.CONFLICTCODE -> {
+                            Toast.makeText(this, Constants.REGISTERCONFLICT, Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                        else -> {
+                            Toast.makeText(this, Constants.ERROR, Toast.LENGTH_SHORT).show()
+                        }
                     }
-                    Constants.CONFLICTCODE -> {
-                        Toast.makeText(this, Constants.REGISTERCONFLICT, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> {
-                        Toast.makeText(this, Constants.ERROR, Toast.LENGTH_SHORT).show()
-                    }
-                }
-            })
+                })
+            }
         }
 
         btnGuest.setOnClickListener {
