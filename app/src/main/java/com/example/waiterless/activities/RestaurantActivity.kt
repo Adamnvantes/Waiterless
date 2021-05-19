@@ -3,6 +3,7 @@ package com.example.waiterless.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -59,6 +60,16 @@ class RestaurantActivity : AppCompatActivity() {
         val price5Txt = findViewById<TextView>(R.id.priceText5) // for the fifth item's price
         val price6Txt = findViewById<TextView>(R.id.priceText6) // for the sixth item's price
         val price7Txt = findViewById<TextView>(R.id.priceText7) // for the seventh item's price
+
+        //Service button
+        val serviceButton = findViewById<Button>(R.id.getServiceButton)
+        serviceButton.setOnClickListener {
+            viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+            viewModel.sendService(restaurantID, tableID)
+            viewModel.stringResponse.observe(this, Observer { response ->
+
+            })
+        }
 
 
         //Calling restaurant's menu
