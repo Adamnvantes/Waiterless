@@ -11,6 +11,7 @@ import com.example.waiterless.models.FoodModel
 import com.example.waiterless.repository.Repository
 import com.example.waiterless.viewmodel.APIViewModel
 import com.example.waiterless.viewmodel.APIViewModelFactory
+import com.squareup.picasso.Picasso
 
 //food orders
 class RestaurantActivity : AppCompatActivity() {
@@ -38,6 +39,8 @@ class RestaurantActivity : AppCompatActivity() {
                     //TODO: Update menu here
                     if(rID == 0)
                     {
+                        Picasso
+                        Picasso .get().load(menu[0].link).into(menuItem1Pic)
                         val food1Txt = findViewById<TextView>(R.id.foodText1)
                         food1Txt.text = menu[0].name
 
@@ -89,7 +92,7 @@ class RestaurantActivity : AppCompatActivity() {
 
                     }
 
-
+                    run(menu )
 
                 }
             })
