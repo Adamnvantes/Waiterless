@@ -130,7 +130,8 @@
         app:layout_constraintEnd_toStartOf="@+id/menuItem4Pic"
         app:layout_constraintTop_toBottomOf="@+id/foodText3" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem1Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
@@ -140,7 +141,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem2Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
@@ -150,7 +152,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem3Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
@@ -160,7 +163,8 @@
         app:layout_constraintTop_toBottomOf="@+id/menuItem1Pic"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem4Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
@@ -170,7 +174,8 @@
         app:layout_constraintTop_toBottomOf="@+id/menuItem2Pic"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem5Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
@@ -180,7 +185,8 @@
         app:layout_constraintTop_toBottomOf="@+id/menuItem3Pic"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem6Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"
@@ -190,7 +196,8 @@
         app:layout_constraintTop_toBottomOf="@+id/menuItem4Pic"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
+    <ImageButton
+        android:onClick="scrollToTop"
         android:id="@+id/menuItem7Pic"
         android:layout_width="77dp"
         android:layout_height="77dp"

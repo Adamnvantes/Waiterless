@@ -3,6 +3,7 @@ package com.example.waiterless.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -42,6 +43,11 @@ class RestaurantActivity : AppCompatActivity() {
                     //TODO: Update menu here
                     //item 1
                     val menuItem1Pic = findViewById<ImageView>(R.id.menuItem1Pic)  // for the first menu item's picture
+
+                    menuItem1Pic.setOnClickListener {
+                        sendOrder(0)
+                    }
+
                     Picasso.get().load(menu[0].link).into(menuItem1Pic)
                     val food1Txt = findViewById<TextView>(R.id.foodText1) // for the menu's first food item
                     food1Txt.text = menu[0].name
@@ -103,6 +109,10 @@ class RestaurantActivity : AppCompatActivity() {
         })
     }
 
+    fun scrollToTop(view : View) {
+
+    }
+
     fun sendOrder(rID : Int, table : Int, food : Int){
         //API Variables
         val repository = Repository()
@@ -120,4 +130,7 @@ class RestaurantActivity : AppCompatActivity() {
             }
         })
     }
+
+
+
 }
