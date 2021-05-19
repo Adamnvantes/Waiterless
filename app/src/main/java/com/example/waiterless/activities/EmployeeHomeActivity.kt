@@ -20,6 +20,7 @@ import com.pusher.client.channel.PusherEvent
 import com.pusher.client.connection.ConnectionEventListener
 import com.pusher.client.connection.ConnectionState
 import com.pusher.client.connection.ConnectionStateChange
+import org.json.JSONObject
 import java.util.*
 
 class EmployeeHomeActivity : AppCompatActivity() {
@@ -158,10 +159,43 @@ class EmployeeHomeActivity : AppCompatActivity() {
             Log.i("Tag", event.data)
 
 
+
             runOnUiThread(Runnable() {
                 fun run(x : String){
-                    val test = findViewById<TextView>(R.id.table1Text)
-                    test.text = x
+                    //val test = findViewById<TextView>(R.id.table1Text)
+                    //test.text = x
+                    val jsonObject=JSONObject(event.data)
+                    val table=jsonObject.get("table")
+                    if (table==1)
+                    {
+                        var table1Msg: TextView =findViewById(R.id.table1Text)
+                        table1Msg.setText("Table 1:attention needed")
+                    }
+                    else if(table==2)
+                    {
+                        var table1Msg: TextView =findViewById(R.id.table1Text)
+                        table1Msg.setText("Table 2:attention needed")
+                    }
+                    else if(table==2)
+                    {
+                        var table2Msg: TextView =findViewById(R.id.table2Text)
+                        table2Msg.setText("Table 2:attention needed")
+                    }
+                    else if(table==3)
+                    {
+                        var table3Msg: TextView =findViewById(R.id.table3Text)
+                        table3Msg.setText("Table 3:attention needed")
+                    }
+                    else if(table==4)
+                    {
+                        var table4Msg: TextView =findViewById(R.id.table4Text)
+                        table4Msg.setText("Table 4:attention needed")
+                    }
+                    else if(table==5)
+                    {
+                        var table5Msg: TextView =findViewById(R.id.table5Text)
+                        table5Msg.setText("Table 5:attention needed")
+                    }
                 }
 
                 run(event.data)
