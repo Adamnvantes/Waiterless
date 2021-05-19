@@ -145,10 +145,10 @@ class RestaurantActivity : AppCompatActivity() {
         viewModel.sendOrder(restaurantID, tableID, food)
         viewModel.stringResponse.observe(this, Observer { response ->
             if(response == "200"){
-                Toast.makeText(this, "Order sent!", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Order sent!", Toast.LENGTH_SHORT).show()
             }
             else{
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
         })
     }
