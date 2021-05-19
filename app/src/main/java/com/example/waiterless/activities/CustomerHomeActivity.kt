@@ -76,6 +76,10 @@ class CustomerHomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         val btnAll = findViewById<Button>(R.id.btnRestaurantAll)
         btnAll.setOnClickListener {
             val intent = Intent(this, RestaurantActivity::class.java)
+            val table : Int
+            if(editNumber.text.isEmpty()){
+
+            }
             intent.putExtra("rID",spinnerPos)
             intent.putExtra("table", Integer.parseInt(editNumber.text.toString()))
             startActivity(intent)

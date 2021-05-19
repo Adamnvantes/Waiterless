@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
@@ -24,6 +25,7 @@ class RestaurantActivity : AppCompatActivity() {
 
         //Grabbing restaurant ID
         val rID = intent.getIntExtra("rID", -1)
+        val table = intent.getIntExtra("table", 0)
 
         //API Variables
         val repository = Repository()
@@ -98,6 +100,24 @@ class RestaurantActivity : AppCompatActivity() {
 
                 run(menu)
             })
+        })
+    }
+
+    fun sendOrder(rID : Int, table : Int, food : Int){
+        //API Variables
+        val repository = Repository()
+        val viewModelFactory = APIViewModelFactory(repository)
+
+        //Paging restaurant for food request
+        viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
+        viewModel.sendOrder(rID, table, food)
+        viewModel.stringResponse.observe(this, Observer { response ->
+            if(response == "200"){
+                Toast.makeText(this, "Order sent!", Toast.LENGTH_SHORT)
+            }
+            else{
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT)
+            }
         })
     }
 }
