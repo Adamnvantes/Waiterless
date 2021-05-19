@@ -3,6 +3,7 @@ package com.example.waiterless.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.waiterless.R
@@ -37,25 +38,58 @@ class RestaurantActivity : AppCompatActivity() {
                     //TODO: Update menu here
                     if(rID == 0)
                     {
-                        val food1Txt = findViewById<TextView>(R.id.whatever)
+                        val food1Txt = findViewById<TextView>(R.id.foodText1)
                         food1Txt.text = menu[0].name
+
+                        val price1Txt = findViewById<TextView>(R.id.priceText1)
+                        price1Txt.text = menu[0].price.toString()
+
+
+                        val food2Txt = findViewById<TextView>(R.id.foodText2)
+                        food2Txt.text = menu[0].name
+
+                        val price2Txt = findViewById<TextView>(R.id.priceText2)
+                        price2Txt.text = menu[0].price.toString()
+
+
+                        val food3Txt = findViewById<TextView>(R.id.foodText3)
+                        food3Txt.text = menu[0].name
+
+                        val price3Txt = findViewById<TextView>(R.id.priceText3)
+                        price3Txt.text = menu[0].price.toString()
+
+
+                        val food4Txt = findViewById<TextView>(R.id.foodText4)
+                        food4Txt.text = menu[0].name
+
+                        val price4Txt = findViewById<TextView>(R.id.priceText4)
+                        price4Txt.text = menu[0].price.toString()
+
+
+                        val food5Txt = findViewById<TextView>(R.id.foodText5)
+                        food5Txt.text = menu[0].name
+
+                        val price5Txt = findViewById<TextView>(R.id.priceText5)
+                        price5Txt.text = menu[0].price.toString()
+
+
+                        val food6Txt = findViewById<TextView>(R.id.foodText6)
+                        food6Txt.text = menu[0].name
+
+                        val price6Txt = findViewById<TextView>(R.id.priceText6)
+                        price6Txt.text = menu[0].price.toString()
+
+
+                        val food7Txt = findViewById<TextView>(R.id.foodText7)
+                        food7Txt.text = menu[0].name
+
+                        val price7Txt = findViewById<TextView>(R.id.priceText7)
+                        price7Txt.text = menu[0].price.toString()
+
+
                     }
 
-                    //Armando's example code:
-                    /*
-                     val jsonObject=JSONObject(event.data)
-                    val table=jsonObject.get("table")
-                    if (table==1)
-                    {
-                        var table1Msg: TextView =findViewById(R.id.table1Text)
-                        table1Msg.setText("Table 1:attention needed")
-                    }
-                    else if(table==2)
-                    {
-                        var table1Msg: TextView =findViewById(R.id.table1Text)
-                        table1Msg.setText("Table 2:attention needed")
-                    }
-                     */
+
 
                 }
             })
