@@ -18,14 +18,16 @@ import com.squareup.picasso.Picasso
 //food orders
 class RestaurantActivity : AppCompatActivity() {
     private lateinit var viewModel : APIViewModel
+    private var restaurantID : Int = -1
+    private var tableID : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant)
 
         //Grabbing restaurant ID
-        val rID = intent.getIntExtra("rID", -1)
-        val table = intent.getIntExtra("table", 0)
+        restaurantID = intent.getIntExtra("rID", -1)
+        tableID = intent.getIntExtra("table", 0)
 
         //API Variables
         val repository = Repository()
@@ -33,7 +35,7 @@ class RestaurantActivity : AppCompatActivity() {
 
         //Calling restaurant's menu
         viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-        viewModel.getMenu(rID)
+        viewModel.getMenu(restaurantID)
         viewModel.menuResponse.observe(this, Observer { response ->
             val menu = response
 
@@ -103,14 +105,14 @@ class RestaurantActivity : AppCompatActivity() {
         })
     }
 
-    fun sendOrder(rID : Int, table : Int, food : Int){
+    fun sendOrder(food : Int){
         //API Variables
         val repository = Repository()
         val viewModelFactory = APIViewModelFactory(repository)
 
         //Paging restaurant for food request
         viewModel = ViewModelProvider(this, viewModelFactory).get(APIViewModel::class.java)
-        viewModel.sendOrder(rID, table, food)
+        viewModel.sendOrder(restaurantID, tableID, food)
         viewModel.stringResponse.observe(this, Observer { response ->
             if(response == "200"){
                 Toast.makeText(this, "Order sent!", Toast.LENGTH_SHORT)
