@@ -33,17 +33,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/qrCodeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginBottom="184dp"
-        android:text="Scan QR Code"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
 
         android:id="@+id/btnRestaurantRecent"
         android:layout_width="wrap_content"
@@ -71,30 +60,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="Change Info"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
+        tools:layout_editor_absoluteY="563dp" />
 
     <Spinner
         android:id="@+id/customerSpinner"
         android:layout_width="128dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
+        tools:layout_editor_absoluteY="600dp" />
 
     <EditText
         android:id="@+id/customerChangeValue"
         android:layout_width="241dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/customerSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
+        tools:layout_editor_absoluteY="600dp" />
 
     <Button
         android:id="@+id/btnCustomerValueSubmit"
@@ -110,10 +96,9 @@
         android:id="@+id/customerRestaurantSpinnerRecent"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/qrCodeButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="431dp" />
 
     <Spinner
         android:id="@+id/customerRestaurantSpinnerAll"
@@ -128,7 +113,7 @@
         android:id="@+id/editTableNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="308dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
