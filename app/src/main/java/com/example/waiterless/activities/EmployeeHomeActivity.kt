@@ -101,7 +101,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
         //clears table 4 request
         val buttonClearTable4=findViewById<Button>(R.id.table4Button)
         buttonClearTable4.setOnClickListener{
-            var table4Msg: TextView =findViewById(R.id.table1Text)
+            var table4Msg: TextView =findViewById(R.id.table4Text)
             table4Msg.setText("Table 4: No attention needed")
 
         }
@@ -186,12 +186,12 @@ class EmployeeHomeActivity : AppCompatActivity() {
                     }
                     else if(table==2)
                     {
-                        var table1Msg: TextView =findViewById(R.id.table1Text)
+                        var table1Msg: TextView =findViewById(R.id.table2Text)
                         table1Msg.setText("Table 2: Attention needed")
                     }
                     else if(table==2)
                     {
-                        var table2Msg: TextView =findViewById(R.id.table2Text)
+                        var table2Msg: TextView =findViewById(R.id.table3Text)
                         table2Msg.setText("Table 2: Attention needed")
                     }
                     else if(table==3)
