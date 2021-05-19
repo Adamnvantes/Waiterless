@@ -119,9 +119,7 @@ class EmployeeHomeActivity : AppCompatActivity() {
 
         }
         val orders: Queue<String> = LinkedList<String>()
-        orders.add("Table 1: peperoni pizza")
-        orders.add("Table 2: salad")
-        orders.add("Table 3: pasta")
+
         //show order in queue if any
         if (orders.size==0)
         {
@@ -166,35 +164,52 @@ class EmployeeHomeActivity : AppCompatActivity() {
                     //test.text = x
                     val jsonObject=JSONObject(event.data)
                     val table=jsonObject.get("table")
+                    val order=jsonObject.getJSONObject("order")
+                    val item=order.get("name")
+                    val price=(order.getDouble("price")).toFloat()
+                    orders.add("Table $table ordered $item, price=$price")
+                    //show order in queue if any
+                    if (orders.size==0)
+                    {
+                        var orderMsg: TextView = findViewById(R.id.orderText)
+                        orderMsg.setText("No Orders Pending")
+                    }
+                    else
+                    {
+                        var orderMsg: TextView = findViewById(R.id.orderText)
+                        orderMsg.setText(orders.peek())
+                    }
                     if (table==1)
                     {
                         var table1Msg: TextView =findViewById(R.id.table1Text)
-                        table1Msg.setText("Table 1:attention needed")
+                        table1Msg.setText("Table 1: Attention needed")
+
+
                     }
                     else if(table==2)
                     {
                         var table1Msg: TextView =findViewById(R.id.table1Text)
-                        table1Msg.setText("Table 2:attention needed")
+                        table1Msg.setText("Table 2: Attention needed")
                     }
                     else if(table==2)
                     {
                         var table2Msg: TextView =findViewById(R.id.table2Text)
-                        table2Msg.setText("Table 2:attention needed")
+                        table2Msg.setText("Table 2: Attention needed")
                     }
                     else if(table==3)
                     {
                         var table3Msg: TextView =findViewById(R.id.table3Text)
-                        table3Msg.setText("Table 3:attention needed")
+                        table3Msg.setText("Table 3: Attention needed")
                     }
                     else if(table==4)
                     {
                         var table4Msg: TextView =findViewById(R.id.table4Text)
-                        table4Msg.setText("Table 4:attention needed")
+                        table4Msg.setText("Table 4: Attention needed")
                     }
                     else if(table==5)
                     {
                         var table5Msg: TextView =findViewById(R.id.table5Text)
-                        table5Msg.setText("Table 5:attention needed")
+                        table5Msg.setText("Table 5: Attention needed")
                     }
                 }
 
