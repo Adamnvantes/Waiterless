@@ -48,12 +48,10 @@
         android:id="@+id/btnRestaurantRecent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:text="Select From Recents"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/customerRestaurantSpinnerRecent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
