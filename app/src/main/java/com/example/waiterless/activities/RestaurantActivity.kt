@@ -35,6 +35,28 @@ class RestaurantActivity : AppCompatActivity() {
             runOnUiThread(Runnable {
                 fun run(menu: Array<FoodModel>){
                     //TODO: Update menu here
+                    if(rID == 0)
+                    {
+                        val food1Txt = findViewById<TextView>(R.id.whatever)
+                        food1Txt.text = menu[0].name
+                    }
+
+                    //Armando's example code:
+                    /*
+                     val jsonObject=JSONObject(event.data)
+                    val table=jsonObject.get("table")
+                    if (table==1)
+                    {
+                        var table1Msg: TextView =findViewById(R.id.table1Text)
+                        table1Msg.setText("Table 1:attention needed")
+                    }
+                    else if(table==2)
+                    {
+                        var table1Msg: TextView =findViewById(R.id.table1Text)
+                        table1Msg.setText("Table 2:attention needed")
+                    }
+                     */
+
                 }
             })
         })
