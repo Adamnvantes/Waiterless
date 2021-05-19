@@ -63,10 +63,10 @@ class EmployeeHomeActivity : AppCompatActivity() {
             table1Msg.setText("Table 1: No attention needed")
 
             var table2Msg: TextView =findViewById(R.id.table2Text)
-            table1Msg.setText("Table 2: No attention needed")
+            table2Msg.setText("Table 2: No attention needed")
 
             var table3Msg: TextView =findViewById(R.id.table3Text)
-            table1Msg.setText("Table 3: No attention needed")
+            table3Msg.setText("Table 3: No attention needed")
 
             var table4Msg: TextView =findViewById(R.id.table4Text)
             table4Msg.setText("Table 4: No attention needed")
@@ -86,31 +86,31 @@ class EmployeeHomeActivity : AppCompatActivity() {
         //clears table 2 request
         val buttonClearTable2=findViewById<Button>(R.id.table2Button)
         buttonClearTable2.setOnClickListener{
-            var table1Msg: TextView =findViewById(R.id.table2Text)
-            table1Msg.setText("Table 2: No attention needed")
+            var table2Msg: TextView =findViewById(R.id.table2Text)
+            table2Msg.setText("Table 2: No attention needed")
         }
 
         //clears table 3 request
         val buttonClearTable3=findViewById<Button>(R.id.table3Button)
         buttonClearTable3.setOnClickListener{
-            var table1Msg: TextView =findViewById(R.id.table3Text)
-            table1Msg.setText("Table 3: No attention needed")
+            var table3Msg: TextView =findViewById(R.id.table3Text)
+            table3Msg.setText("Table 3: No attention needed")
 
         }
 
         //clears table 4 request
         val buttonClearTable4=findViewById<Button>(R.id.table4Button)
         buttonClearTable4.setOnClickListener{
-            var table1Msg: TextView =findViewById(R.id.table1Text)
-            table1Msg.setText("Table 4: No attention needed")
+            var table4Msg: TextView =findViewById(R.id.table1Text)
+            table4Msg.setText("Table 4: No attention needed")
 
         }
 
         //clears table 5 request
         val buttonClearTable5=findViewById<Button>(R.id.table5Button)
         buttonClearTable5.setOnClickListener{
-            var table1Msg: TextView =findViewById(R.id.table5Text)
-            table1Msg.setText("Table 5: No attention needed")
+            var table5Msg: TextView =findViewById(R.id.table5Text)
+            table5Msg.setText("Table 5: No attention needed")
 
         }
 
